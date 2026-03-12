@@ -34,7 +34,7 @@
 
                             <Label
                                 Margin="10"
-                                FontSize="12"
+                                FontSize="14"
                                 HorizontalOptions="Center"
                                 Opacity="0.6"
                                 Text="Tap to expand/collapse" />
@@ -49,7 +49,7 @@
                         <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                             <VerticalStackLayout>
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Brand" />
                                 <Picker ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" />
@@ -57,7 +57,7 @@
 
                             <VerticalStackLayout Grid.Column="1">
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Transmission" />
                                 <Picker ItemsSource="{Binding TransmissionOptions}" SelectedItem="{Binding SelectedTransmission}" />
@@ -73,7 +73,7 @@
 
                             <VerticalStackLayout>
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Year From" />
                                 <Entry
@@ -84,7 +84,7 @@
 
                             <VerticalStackLayout Grid.Column="1">
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Year To" />
                                 <Entry
@@ -95,7 +95,7 @@
 
                             <VerticalStackLayout Grid.Row="1">
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Engine From (cc)" />
                                 <Entry
@@ -106,7 +106,7 @@
 
                             <VerticalStackLayout Grid.Row="1" Grid.Column="1">
                                 <Label
-                                    FontSize="12"
+                                    FontSize="14"
                                     Opacity="0.7"
                                     Text="Engine To (cc)" />
                                 <Entry
@@ -130,7 +130,7 @@
 
             <!--  Results count  -->
             <Label
-                FontSize="12"
+                FontSize="14"
                 Opacity="0.7"
                 Text="{Binding ResultsCount, StringFormat='Results: {0}'}" />
         </VerticalStackLayout>
@@ -177,8 +177,9 @@
                         <Border
                             Padding="0"
                             BackgroundColor="White"
+                            Stroke="{SolidColorBrush Grey}"
                             StrokeShape="RoundRectangle 18"
-                            StrokeThickness="0">
+                            StrokeThickness="1">
 
                             <Grid RowDefinitions="160,Auto">
                                 <!--  Banner Image  -->
@@ -189,18 +190,18 @@
                                         Source="{Binding Image}" />
 
                                     <!--  readable overlay  -->
-                                    <BoxView Color="#66000000" />
+                                    <BoxView Color="#77000000" />
                                     <VerticalStackLayout
                                         Padding="12"
                                         Spacing="2"
                                         VerticalOptions="End">
                                         <Label
                                             FontAttributes="Bold"
-                                            FontSize="18"
+                                            FontSize="20"
                                             Text="{Binding Brand}"
                                             TextColor="White" />
                                         <Label
-                                            FontSize="14"
+                                            FontSize="16"
                                             Opacity="0.9"
                                             Text="{Binding Model}"
                                             TextColor="White" />
@@ -217,25 +218,26 @@
                                     RowSpacing="6">
 
                                     <Label
-                                        FontSize="12"
+                                        FontSize="15"
                                         Opacity="0.75"
                                         Text="{Binding Year, StringFormat='Year: {0}'}" />
 
                                     <Label
                                         Grid.Column="1"
-                                        FontSize="12"
+                                        FontSize="15"
                                         Opacity="0.75"
                                         Text="{Binding HorsePower, StringFormat='Power: {0} hp'}" />
 
                                     <Label
                                         Grid.Column="2"
-                                        FontSize="12"
+                                        FontSize="15"
                                         Opacity="0.75"
                                         Text="{Binding EngineDisplacementCc, StringFormat='Engine: {0} cc'}" />
 
                                     <Label
                                         Grid.Row="1"
-                                        FontSize="12"
+                                        Grid.ColumnSpan="2"
+                                        FontSize="15"
                                         Opacity="0.75"
                                         Text="{Binding Transmission, StringFormat='Transmission: {0}'}" />
                                 </Grid>
