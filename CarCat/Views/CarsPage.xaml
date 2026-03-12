@@ -18,7 +18,6 @@
                 <toolkit:Expander.Header>
                     <Border
                         Padding="12"
-                        BackgroundColor="#F3F4F6"
                         StrokeShape="RoundRectangle 14"
                         StrokeThickness="0">
                         <HorizontalStackLayout Spacing="10">
@@ -119,7 +118,8 @@
                         <Button
                             Command="{Binding ClearFiltersCommand}"
                             HeightRequest="44"
-                            Text="Clear Filters" />
+                            Text="Clear Filters"
+                            TextColor="White" />
 
                     </VerticalStackLayout>
                 </toolkit:Expander.Content>
@@ -176,7 +176,6 @@
                     <DataTemplate>
                         <Border
                             Padding="0"
-                            BackgroundColor="White"
                             Stroke="{SolidColorBrush Grey}"
                             StrokeShape="RoundRectangle 18"
                             StrokeThickness="1">
