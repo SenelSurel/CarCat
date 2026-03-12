@@ -1,0 +1,122 @@
+[
+  {
+    "Id": 1,
+    "Brand": "Toyota",
+    "Model": "Corolla",
+    "Year": 2020,
+    "HorsePower": 132,
+    "EngineDisplacementCc": 1598,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Reliable compact sedan, great fuel economy."
+  },
+  {
+    "Id": 2,
+    "Brand": "Honda",
+    "Model": "Civic",
+    "Year": 2019,
+    "HorsePower": 158,
+    "EngineDisplacementCc": 1498,
+    "Transmission": "Manual",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Sporty handling and strong resale value."
+  },
+  {
+    "Id": 3,
+    "Brand": "Volkswagen",
+    "Model": "Golf",
+    "Year": 2018,
+    "HorsePower": 150,
+    "EngineDisplacementCc": 1395,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Solid build quality with a practical hatchback body."
+  },
+  {
+    "Id": 4,
+    "Brand": "BMW",
+    "Model": "320i",
+    "Year": 2017,
+    "HorsePower": 184,
+    "EngineDisplacementCc": 1998,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Balanced performance and comfort."
+  },
+  {
+    "Id": 5,
+    "Brand": "Mercedes-Benz",
+    "Model": "C200",
+    "Year": 2016,
+    "HorsePower": 184,
+    "EngineDisplacementCc": 1991,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Comfort-focused premium sedan."
+  },
+  {
+    "Id": 6,
+    "Brand": "Mazda",
+    "Model": "Mazda3",
+    "Year": 2021,
+    "HorsePower": 122,
+    "EngineDisplacementCc": 1998,
+    "Transmission": "Manual",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Sharp design and enjoyable driving feel."
+  },
+  {
+    "Id": 7,
+    "Brand": "Ford",
+    "Model": "Focus",
+    "Year": 2015,
+    "HorsePower": 125,
+    "EngineDisplacementCc": 1596,
+    "Transmission": "Manual",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Practical daily driver with good road manners."
+  },
+  {
+    "Id": 8,
+    "Brand": "Hyundai",
+    "Model": "i30",
+    "Year": 2022,
+    "HorsePower": 160,
+    "EngineDisplacementCc": 1482,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Modern tech and strong value."
+  },
+  {
+    "Id": 9,
+    "Brand": "Audi",
+    "Model": "A3",
+    "Year": 2019,
+    "HorsePower": 150,
+    "EngineDisplacementCc": 1498,
+    "Transmission": "Automatic",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Premium compact with refined interior."
+  },
+  {
+    "Id": 10,
+    "Brand": "Renault",
+    "Model": "Megane",
+    "Year": 2018,
+    "HorsePower": 115,
+    "EngineDisplacementCc": 1461,
+    "Transmission": "Manual",
+    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
+    "Image": "car_placeholder.jpg",
+    "Description": "Comfortable ride and efficient diesel option."
+  }
+]

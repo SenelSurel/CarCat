@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CarCat.Views.CarDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Car Detail">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="12">
+            <HorizontalStackLayout IsVisible="{Binding IsBusy}" Spacing="10">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" />
+                <Label
+                    Opacity="0.75"
+                    Text="Loading details..."
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+
+            <Border
+                Padding="12"
+                BackgroundColor="#33FF0000"
+                IsVisible="{Binding HasError}"
+                StrokeShape="RoundRectangle 14"
+                StrokeThickness="0">
+                <Label Text="{Binding ErrorMessage}" TextColor="Red" />
+            </Border>
+
+            <VerticalStackLayout IsVisible="{Binding HasCar}" Spacing="12">
+
+
+                <CarouselView
+                    x:Name="carCarousel"
+                    HeightRequest="250"
+                    ItemsSource="{Binding SliderImages}"
+                    Loop="True">
+
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="250"
+                                Source="{Binding}" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+
+
+                <VerticalStackLayout Spacing="2">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        Text="{Binding Car.Brand}" />
+                    <Label
+                        FontSize="16"
+                        Opacity="0.85"
+                        Text="{Binding Car.Model}" />
+                </VerticalStackLayout>
+
+                <Grid
+                    ColumnDefinitions="*,*"
+                    ColumnSpacing="12"
+                    RowDefinitions="Auto,Auto,Auto,Auto"
+                    RowSpacing="8">
+
+                    <Label Opacity="0.7" Text="Year" />
+                    <Label Grid.Column="1" Text="{Binding Car.Year}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Opacity="0.7"
+                        Text="Power" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{Binding Car.HorsePower, StringFormat='{}{0} hp'}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Opacity="0.7"
+                        Text="Engine" />
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Text="{Binding Car.EngineDisplacementCc, StringFormat='{}{0} cc'}" />
+
+                    <Label
+                        Grid.Row="3"
+                        Opacity="0.7"
+                        Text="Transmission" />
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Text="{Binding Car.Transmission}" />
+                </Grid>
+
+                <Label
+                    Margin="0,8,0,0"
+                    FontAttributes="Bold"
+                    Text="About" />
+                <Label Opacity="0.85" Text="{Binding Car.Description}" />
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
