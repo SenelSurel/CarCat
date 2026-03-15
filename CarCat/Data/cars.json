@@ -2,14 +2,26 @@
   {
     "Id": 1,
     "Brand": "Toyota",
-    "Model": "Corolla",
-    "Year": 2020,
+    "Model": "Corolla TOM's Edition",
+    "Year": 2022,
     "HorsePower": 132,
-    "EngineDisplacementCc": 1598,
+    "EngineDisplacementCc": 1200,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Reliable compact sedan, great fuel economy."
+    "Images": [ "corolla_1.jpg", "corolla_2.jpg", "toms.jpg" ],
+    "Image": "toms.jpg",
+    "Description": "A sporty and refined sedan with bold styling, premium character, and turbocharged performance that makes every drive feel exciting."
+  },
+  {
+    "Id": 11,
+    "Brand": "Toyota",
+    "Model": "Yaris GR",
+    "Year": 2023,
+    "HorsePower": 261,
+    "EngineDisplacementCc": 1618,
+    "Transmission": "Manual",
+    "Images": [ "yarisgr_1.jpg", "yarisgr_2.jpg", "yarisgr_3.jpg" ],
+    "Image": "yarisgr_1.jpg",
+    "Description": "Compact, aggressive, and built with true performance spirit, the Yaris GR delivers an exciting hot hatch experience with rally-inspired character."
   },
   {
     "Id": 2,
@@ -19,9 +31,21 @@
     "HorsePower": 158,
     "EngineDisplacementCc": 1498,
     "Transmission": "Manual",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Sporty handling and strong resale value."
+    "Images": [ "civic_1.jpg", "civic_2.jpg", "civic_3.jpg" ],
+    "Image": "civic_1.jpg",
+    "Description": "With its sharp design, responsive manual gearbox, and energetic performance, the Civic delivers a pure and engaging driving experience."
+  },
+  {
+    "Id": 12,
+    "Brand": "Honda",
+    "Model": "Accord",
+    "Year": 2020,
+    "HorsePower": 190,
+    "EngineDisplacementCc": 1498,
+    "Transmission": "Automatic",
+    "Images": [ "accord_1.jpg", "accord_2.jpg", "accord_3.jpg" ],
+    "Image": "accord_1.jpg",
+    "Description": "The Accord combines elegant styling, smooth power delivery, and refined comfort, making it a spacious sedan with a premium feel."
   },
   {
     "Id": 3,
@@ -31,9 +55,21 @@
     "HorsePower": 150,
     "EngineDisplacementCc": 1395,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Solid build quality with a practical hatchback body."
+    "Images": [ "golf_1.jpg", "golf_2.jpg", "golf_3.jpg" ],
+    "Image": "golf_1.jpg",
+    "Description": "Combining everyday practicality with a refined feel, the Golf stands out with its clean design, solid build, and effortless performance."
+  },
+  {
+    "Id": 13,
+    "Brand": "Volkswagen",
+    "Model": "Passat",
+    "Year": 2021,
+    "HorsePower": 150,
+    "EngineDisplacementCc": 1498,
+    "Transmission": "Automatic",
+    "Images": [ "passat_1.jpg", "passat_2.jpg", "passat_3.jpg" ],
+    "Image": "passat_1.jpg",
+    "Description": "Sophisticated and practical, the Passat offers strong road presence, smooth performance, and a comfortable driving experience for everyday use."
   },
   {
     "Id": 4,
@@ -43,9 +79,21 @@
     "HorsePower": 184,
     "EngineDisplacementCc": 1998,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Balanced performance and comfort."
+    "Images": [ "bmw_1.jpg", "bmw_2.jpg", "bmw_3.jpg" ],
+    "Image": "bmw_1.jpg",
+    "Description": "The 320i offers a perfect balance of luxury, precision, and dynamic performance, creating a driving experience that feels both premium and exciting."
+  },
+  {
+    "Id": 14,
+    "Brand": "BMW",
+    "Model": "M4",
+    "Year": 2022,
+    "HorsePower": 510,
+    "EngineDisplacementCc": 2993,
+    "Transmission": "Automatic",
+    "Images": [ "m4_1.jpg", "m4_2.jpg", "m4_3.jpg" ],
+    "Image": "m4_1.jpg",
+    "Description": "Powerful, aggressive, and unmistakably premium, the M4 delivers thrilling performance with sharp handling and bold coupe styling."
   },
   {
     "Id": 5,
@@ -55,21 +103,45 @@
     "HorsePower": 184,
     "EngineDisplacementCc": 1991,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Comfort-focused premium sedan."
+    "Images": [ "merc_1.jpg", "merc_2.jpg", "merc_3.jpg" ],
+    "Image": "merc_1.jpg",
+    "Description": "Elegant, smooth, and confidently premium, the C200 delivers comfort and class with a strong presence on every road."
+  },
+  {
+    "Id": 15,
+    "Brand": "Mercedes-Benz",
+    "Model": "A45 AMG",
+    "Year": 2021,
+    "HorsePower": 421,
+    "EngineDisplacementCc": 1991,
+    "Transmission": "Automatic",
+    "Images": [ "a45_1.jpg", "a45_2.jpg", "a45_3.jpg" ],
+    "Image": "a45_1.jpg",
+    "Description": "Aggressive, compact, and incredibly powerful, the A45 AMG delivers explosive performance, sharp handling, and unmistakable AMG character."
   },
   {
     "Id": 6,
     "Brand": "Mazda",
-    "Model": "Mazda3",
+    "Model": "Mazda 3",
     "Year": 2021,
     "HorsePower": 122,
     "EngineDisplacementCc": 1998,
     "Transmission": "Manual",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Sharp design and enjoyable driving feel."
+    "Images": [ "mazda_1.jpg", "mazda_2.jpg", "mazda_3.jpg" ],
+    "Image": "mazda_1.jpg",
+    "Description": "The Mazda3 blends sleek styling, driver-focused handling, and a premium feel, making every journey more enjoyable."
+  },
+  {
+    "Id": 16,
+    "Brand": "Mazda",
+    "Model": "Mazda 2",
+    "Year": 2020,
+    "HorsePower": 90,
+    "EngineDisplacementCc": 1496,
+    "Transmission": "Manual",
+    "Images": [ "mazda2_1.jpg", "mazda2_2.jpg", "mazda2_3.jpg" ],
+    "Image": "mazda2_1.jpg",
+    "Description": "Small, efficient, and surprisingly refined, the Mazda2 offers stylish design, nimble handling, and a fun driving character in a compact package."
   },
   {
     "Id": 7,
@@ -79,21 +151,45 @@
     "HorsePower": 125,
     "EngineDisplacementCc": 1596,
     "Transmission": "Manual",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Practical daily driver with good road manners."
+    "Images": [ "ford_1.jpg", "ford_2.jpg", "ford_3.jpg" ],
+    "Image": "ford_1.jpg",
+    "Description": "Reliable, practical, and easy to enjoy, the Focus brings balanced handling and everyday comfort in one smart package."
+  },
+  {
+    "Id": 17,
+    "Brand": "Ford",
+    "Model": "Mustang",
+    "Year": 2021,
+    "HorsePower": 450,
+    "EngineDisplacementCc": 5038,
+    "Transmission": "Automatic",
+    "Images": [ "mustang_1.jpg", "mustang_2.jpg", "mustang_3.jpg" ],
+    "Image": "mustang_1.jpg",
+    "Description": "Bold, muscular, and full of character, the Mustang delivers iconic styling and powerful performance with a true sports car attitude."
   },
   {
     "Id": 8,
     "Brand": "Hyundai",
-    "Model": "i30",
+    "Model": "i30 N",
     "Year": 2022,
     "HorsePower": 160,
-    "EngineDisplacementCc": 1482,
+    "EngineDisplacementCc": 2000,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Modern tech and strong value."
+    "Images": [ "hyundai_1.jpg", "hyundai_2.jpg", "hyundai_3.jpg" ],
+    "Image": "hyundai_1.jpg",
+    "Description": "Modern, stylish, and well-equipped, the i30 offers strong performance, smart technology, and excellent everyday versatility."
+  },
+  {
+    "Id": 18,
+    "Brand": "Hyundai",
+    "Model": "Elantra N",
+    "Year": 2023,
+    "HorsePower": 280,
+    "EngineDisplacementCc": 1998,
+    "Transmission": "Automatic",
+    "Images": [ "elantran_1.jpg", "elantran_2.jpg", "elantran_3.jpg" ],
+    "Image": "elantran_1.jpg",
+    "Description": "Sharp, sporty, and highly engaging, the Elantra N combines aggressive design with dynamic performance for drivers who want excitement every day."
   },
   {
     "Id": 9,
@@ -101,11 +197,23 @@
     "Model": "A3",
     "Year": 2019,
     "HorsePower": 150,
-    "EngineDisplacementCc": 1498,
+    "EngineDisplacementCc": 1500,
     "Transmission": "Automatic",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Premium compact with refined interior."
+    "Images": [ "audi_1.jpg", "audi_2.jpg", "audi_3.jpg" ],
+    "Image": "audi_1.jpg",
+    "Description": "With its premium design, refined cabin, and confident performance, the A3 delivers a compact luxury experience with real character."
+  },
+  {
+    "Id": 19,
+    "Brand": "Audi",
+    "Model": "RS3",
+    "Year": 2022,
+    "HorsePower": 400,
+    "EngineDisplacementCc": 2500,
+    "Transmission": "Automatic",
+    "Images": [ "rs3_1.jpg", "rs3_2.jpg", "rs3_3.jpg" ],
+    "Image": "rs3_1.jpg",
+    "Description": "Compact yet brutally quick, the RS3 brings together premium detail, aggressive styling, and thrilling performance in a truly special package."
   },
   {
     "Id": 10,
@@ -115,8 +223,20 @@
     "HorsePower": 115,
     "EngineDisplacementCc": 1461,
     "Transmission": "Manual",
-    "Images": [ "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" , "car_placeholder.jpg" ],
-    "Image": "car_placeholder.jpg",
-    "Description": "Comfortable ride and efficient diesel option."
+    "Images": [ "renault_1.jpg", "renault_2.jpg", "renault_3.jpg" ],
+    "Image": "renault_1.jpg",
+    "Description": "Efficient, comfortable, and stylish, the Megane offers a smooth driving experience with a practical and modern character."
+  },
+  {
+    "Id": 20,
+    "Brand": "Renault",
+    "Model": "Clio",
+    "Year": 2021,
+    "HorsePower": 100,
+    "EngineDisplacementCc": 1000,
+    "Transmission": "Manual",
+    "Images": [ "clio_1.jpg", "clio_2.jpg", "clio_3.jpg" ],
+    "Image": "clio_1.jpg",
+    "Description": "Stylish, compact, and practical, the Clio offers efficient performance, modern design, and a comfortable character ideal for daily driving."
   }
 ]
