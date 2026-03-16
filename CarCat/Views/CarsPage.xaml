@@ -4,242 +4,466 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    Title="Cars">
+    Title="Cars"
+    BackgroundColor="#F6F7FB">
 
     <Grid
-        Padding="16"
+        Padding="16,14,16,10"
         RowDefinitions="Auto,Auto,*"
-        RowSpacing="12">
+        RowSpacing="14">
 
-        <!--  ROW 0: FILTER PANEL + RESULTS COUNT  -->
-        <VerticalStackLayout Grid.Row="0" Spacing="10">
+        <!--  TOP AREA  -->
+        <VerticalStackLayout Grid.Row="0" Spacing="12">
 
-            <toolkit:Expander>
-                <toolkit:Expander.Header>
-                    <Border
-                        Padding="12"
-                        StrokeShape="RoundRectangle 14"
-                        StrokeThickness="0">
-                        <HorizontalStackLayout Spacing="10">
+            <!--  FILTER CARD  -->
+            <Border
+                Padding="0"
+                BackgroundColor="White"
+                Stroke="#E9ECF2"
+                StrokeShape="RoundRectangle 24"
+                StrokeThickness="1">
+
+                <toolkit:Expander>
+                    <toolkit:Expander.Header>
+                        <Grid Padding="16,14" ColumnDefinitions="Auto,*,Auto">
+
                             <Border
-                                Padding="8.5"
+                                Grid.Column="0"
+                                Padding="10,6"
                                 BackgroundColor="{StaticResource Primary}"
-                                StrokeShape="RoundRectangle 5">
+                                StrokeShape="RoundRectangle 10"
+                                StrokeThickness="0"
+                                VerticalOptions="Center">
                                 <Label
                                     FontAttributes="Bold"
-                                    Text="Filters"
+                                    FontSize="13"
+                                    Text="FILTERS"
                                     TextColor="White" />
                             </Border>
 
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Margin="12,0,0,0"
+                                Spacing="2"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="Refine your results"
+                                    TextColor="#1F2937" />
+                                <Label
+                                    FontSize="12"
+                                    Opacity="0.6"
+                                    Text="Brand, transmission, year and engine range"
+                                    TextColor="#1F2937" />
+                            </VerticalStackLayout>
+
                             <Label
-                                Margin="10"
-                                FontSize="14"
-                                HorizontalOptions="Center"
-                                Opacity="0.6"
-                                Text="Tap to expand/collapse" />
-                        </HorizontalStackLayout>
-                    </Border>
-                </toolkit:Expander.Header>
-
-                <toolkit:Expander.Content>
-                    <VerticalStackLayout Margin="0,10,0,0" Spacing="10">
-
-                        <!--  Brand + Transmission  -->
-                        <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
-                            <VerticalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Brand" />
-                                <Picker ItemsSource="{Binding Brands}" SelectedItem="{Binding SelectedBrand}" />
-                            </VerticalStackLayout>
-
-                            <VerticalStackLayout Grid.Column="1">
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Transmission" />
-                                <Picker ItemsSource="{Binding TransmissionOptions}" SelectedItem="{Binding SelectedTransmission}" />
-                            </VerticalStackLayout>
+                                Grid.Column="2"
+                                FontSize="12"
+                                Opacity="0.55"
+                                Text="Tap"
+                                TextColor="#1F2937"
+                                VerticalOptions="Center" />
                         </Grid>
+                    </toolkit:Expander.Header>
 
-                        <!--  Year + Engine ranges  -->
-                        <Grid
-                            ColumnDefinitions="*,*"
-                            ColumnSpacing="12"
-                            RowDefinitions="Auto,Auto"
-                            RowSpacing="10">
+                    <toolkit:Expander.Content>
+                        <VerticalStackLayout Margin="16,0,16,16" Spacing="14">
 
-                            <VerticalStackLayout>
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Year From" />
-                                <Entry
-                                    Keyboard="Numeric"
-                                    Placeholder="2016"
-                                    Text="{Binding YearFromText}" />
-                            </VerticalStackLayout>
+                            <!--  Brand + Transmission  -->
+                            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
 
-                            <VerticalStackLayout Grid.Column="1">
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Year To" />
-                                <Entry
-                                    Keyboard="Numeric"
-                                    Placeholder="2022"
-                                    Text="{Binding YearToText}" />
-                            </VerticalStackLayout>
+                                <VerticalStackLayout Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Brand"
+                                        TextColor="#1F2937" />
 
-                            <VerticalStackLayout Grid.Row="1">
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Engine From (cc)" />
-                                <Entry
-                                    Keyboard="Numeric"
-                                    Placeholder="1400"
-                                    Text="{Binding EngineFromText}" />
-                            </VerticalStackLayout>
+                                    <Border
+                                        Padding="10,4"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Picker
+                                            Title="Choose brand"
+                                            ItemsSource="{Binding Brands}"
+                                            SelectedItem="{Binding SelectedBrand}" />
+                                    </Border>
+                                </VerticalStackLayout>
 
-                            <VerticalStackLayout Grid.Row="1" Grid.Column="1">
-                                <Label
-                                    FontSize="14"
-                                    Opacity="0.7"
-                                    Text="Engine To (cc)" />
-                                <Entry
-                                    Keyboard="Numeric"
-                                    Placeholder="2000"
-                                    Text="{Binding EngineToText}" />
-                            </VerticalStackLayout>
-                        </Grid>
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Transmission"
+                                        TextColor="#1F2937" />
 
-                        <Button
-                            Command="{Binding ClearFiltersCommand}"
-                            HeightRequest="44"
-                            Text="Clear Filters"
-                            TextColor="White" />
+                                    <Border
+                                        Padding="10,4"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Picker
+                                            Title="Choose transmission"
+                                            ItemsSource="{Binding TransmissionOptions}"
+                                            SelectedItem="{Binding SelectedTransmission}" />
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
 
-                    </VerticalStackLayout>
-                </toolkit:Expander.Content>
-            </toolkit:Expander>
+                            <!--  Year + Engine  -->
+                            <Grid
+                                ColumnDefinitions="*,*"
+                                ColumnSpacing="12"
+                                RowDefinitions="Auto,Auto"
+                                RowSpacing="12">
 
-            <!--  Search Bar  -->
-            <SearchBar Placeholder="Search brand or model..." Text="{Binding SearchText}" />
+                                <VerticalStackLayout Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Year From"
+                                        TextColor="#1F2937" />
+                                    <Border
+                                        Padding="12,2"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Entry
+                                            Keyboard="Numeric"
+                                            Placeholder="2016"
+                                            Text="{Binding YearFromText}" />
+                                    </Border>
+                                </VerticalStackLayout>
 
-            <!--  Results count  -->
-            <Label
-                FontSize="14"
-                Opacity="0.7"
-                Text="{Binding ResultsCount, StringFormat='Results: {0}'}" />
-        </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Year To"
+                                        TextColor="#1F2937" />
+                                    <Border
+                                        Padding="12,2"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Entry
+                                            Keyboard="Numeric"
+                                            Placeholder="2022"
+                                            Text="{Binding YearToText}" />
+                                    </Border>
+                                </VerticalStackLayout>
 
-        <!--  ROW 1: LOADING  -->
-        <HorizontalStackLayout
-            Grid.Row="1"
-            IsVisible="{Binding IsBusy}"
-            Spacing="10">
-            <ActivityIndicator IsRunning="{Binding IsBusy}" />
-            <Label Text="Loading..." VerticalTextAlignment="Center" />
-        </HorizontalStackLayout>
+                                <VerticalStackLayout Grid.Row="1" Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Engine From (cc)"
+                                        TextColor="#1F2937" />
+                                    <Border
+                                        Padding="12,2"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Entry
+                                            Keyboard="Numeric"
+                                            Placeholder="1400"
+                                            Text="{Binding EngineFromText}" />
+                                    </Border>
+                                </VerticalStackLayout>
 
-        <!--  ROW 2: LIST AREA (EMPTY STATE + LIST)  -->
-        <Grid Grid.Row="2">
+                                <VerticalStackLayout
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Spacing="6">
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="13"
+                                        Opacity="0.75"
+                                        Text="Engine To (cc)"
+                                        TextColor="#1F2937" />
+                                    <Border
+                                        Padding="12,2"
+                                        BackgroundColor="#F8FAFC"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <Entry
+                                            Keyboard="Numeric"
+                                            Placeholder="2000"
+                                            Text="{Binding EngineToText}" />
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
 
-            <!--  Empty State (converter yok, code-behind kontrol edecek)  -->
-            <VerticalStackLayout
-                x:Name="EmptyState"
-                HorizontalOptions="Center"
-                IsVisible="False"
-                Spacing="6"
-                VerticalOptions="Center">
+                            <Button
+                                Command="{Binding ClearFiltersCommand}"
+                                CornerRadius="14"
+                                FontAttributes="Bold"
+                                HeightRequest="48"
+                                Text="Clear Filters"
+                                TextColor="White" />
+                        </VerticalStackLayout>
+                    </toolkit:Expander.Content>
+                </toolkit:Expander>
+            </Border>
+
+            <!--  SEARCH  -->
+            <Border
+                Padding="6,2"
+                BackgroundColor="White"
+                Stroke="#E9ECF2"
+                StrokeShape="RoundRectangle 18"
+                StrokeThickness="1">
+                <SearchBar Placeholder="Search brand or model..." Text="{Binding SearchText}" />
+            </Border>
+
+            <!--  RESULTS  -->
+            <Grid ColumnDefinitions="*,Auto">
                 <Label
                     FontAttributes="Bold"
-                    FontSize="18"
-                    Text="No results" />
-                <Label
-                    FontSize="13"
-                    Opacity="0.7"
-                    Text="Try clearing filters or adjusting ranges." />
-            </VerticalStackLayout>
+                    FontSize="14"
+                    Text="{Binding ResultsCount, StringFormat='Results: {0}'}"
+                    TextColor="#374151"
+                    VerticalOptions="Center" />
 
-            <!--  List  -->
+                <Border
+                    Grid.Column="1"
+                    Padding="10,6"
+                    BackgroundColor="#EEF2FF"
+                    StrokeShape="RoundRectangle 12"
+                    StrokeThickness="0">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Cars"
+                        TextColor="{StaticResource Primary}" />
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!--  LOADING  -->
+        <Border
+            Grid.Row="1"
+            Padding="14,10"
+            BackgroundColor="White"
+            IsVisible="{Binding IsBusy}"
+            Stroke="#E9ECF2"
+            StrokeShape="RoundRectangle 18"
+            StrokeThickness="1">
+            <HorizontalStackLayout Spacing="10">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" />
+                <Label
+                    FontAttributes="Bold"
+                    Text="Loading cars..."
+                    TextColor="#374151"
+                    VerticalTextAlignment="Center" />
+            </HorizontalStackLayout>
+        </Border>
+
+        <!--  LIST AREA  -->
+        <Grid Grid.Row="2">
+
+            <!--  EMPTY STATE  -->
+            <Border
+                x:Name="EmptyState"
+                Padding="28"
+                BackgroundColor="White"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                MaximumWidthRequest="320"
+                Stroke="#E9ECF2"
+                StrokeShape="RoundRectangle 24"
+                StrokeThickness="1"
+                VerticalOptions="Center">
+                <VerticalStackLayout Spacing="8">
+                    <Label
+                        FontSize="34"
+                        HorizontalTextAlignment="Center"
+                        Text="🚘" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="No results"
+                        TextColor="#1F2937" />
+                    <Label
+                        FontSize="13"
+                        HorizontalTextAlignment="Center"
+                        Opacity="0.7"
+                        Text="Try clearing filters or adjusting your search."
+                        TextColor="#1F2937" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!--  LIST  -->
             <CollectionView
                 ItemsSource="{Binding Cars}"
                 SelectionChanged="OnSelectionChanged"
                 SelectionMode="Single">
+
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="12" Orientation="Vertical" />
+                    <LinearItemsLayout ItemSpacing="14" Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border
                             Padding="0"
-                            Stroke="{SolidColorBrush Grey}"
-                            StrokeShape="RoundRectangle 18"
+                            BackgroundColor="White"
+                            Stroke="#E7EAF0"
+                            StrokeShape="RoundRectangle 24"
                             StrokeThickness="1">
 
-                            <Grid RowDefinitions="160,Auto">
-                                <!--  Banner Image  -->
+                            <Grid RowDefinitions="190,Auto">
+
+                                <!--  IMAGE AREA  -->
                                 <Grid>
                                     <Image
                                         Aspect="AspectFill"
-                                        HeightRequest="160"
+                                        HeightRequest="190"
                                         Source="{Binding Image}" />
 
-                                    <!--  readable overlay  -->
-                                    <BoxView Color="#77000000" />
-                                    <VerticalStackLayout
-                                        Padding="12"
-                                        Spacing="2"
-                                        VerticalOptions="End">
-                                        <Label
-                                            FontAttributes="Bold"
-                                            FontSize="20"
-                                            Text="{Binding Brand}"
-                                            TextColor="White" />
-                                        <Label
-                                            FontSize="16"
-                                            Opacity="0.9"
-                                            Text="{Binding Model}"
-                                            TextColor="White" />
-                                    </VerticalStackLayout>
+                                    <BoxView Color="#55000000" />
+
+                                    <Grid Padding="14" RowDefinitions="Auto,*">
+                                        <Border
+                                            Padding="10,5"
+                                            BackgroundColor="#CC111827"
+                                            HorizontalOptions="Start"
+                                            StrokeShape="RoundRectangle 12"
+                                            StrokeThickness="0">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="12"
+                                                Text="{Binding Year}"
+                                                TextColor="White" />
+                                        </Border>
+
+                                        <VerticalStackLayout
+                                            Grid.Row="1"
+                                            Spacing="3"
+                                            VerticalOptions="End">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="22"
+                                                LineBreakMode="TailTruncation"
+                                                Text="{Binding Brand}"
+                                                TextColor="White" />
+                                            <Label
+                                                FontSize="15"
+                                                LineBreakMode="TailTruncation"
+                                                Opacity="0.95"
+                                                Text="{Binding Model}"
+                                                TextColor="White" />
+                                        </VerticalStackLayout>
+                                    </Grid>
                                 </Grid>
 
-                                <!--  Details  -->
-                                <Grid
+                                <!--  DETAILS  -->
+                                <VerticalStackLayout
                                     Grid.Row="1"
-                                    Padding="12"
-                                    ColumnDefinitions="*,*,*"
-                                    ColumnSpacing="10"
-                                    RowDefinitions="Auto,Auto"
-                                    RowSpacing="6">
+                                    Padding="14,14,14,16"
+                                    Spacing="12">
 
-                                    <Label
-                                        FontSize="15"
-                                        Opacity="0.75"
-                                        Text="{Binding Year, StringFormat='Year: {0}'}" />
+                                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
 
-                                    <Label
-                                        Grid.Column="1"
-                                        FontSize="15"
-                                        Opacity="0.75"
-                                        Text="{Binding HorsePower, StringFormat='Power: {0} hp'}" />
+                                        <Border
+                                            Grid.Column="0"
+                                            Padding="10,8"
+                                            BackgroundColor="#F8FAFC"
+                                            Stroke="#E5E7EB"
+                                            StrokeShape="RoundRectangle 14"
+                                            StrokeThickness="1">
+                                            <VerticalStackLayout Spacing="2">
+                                                <Label
+                                                    FontSize="11"
+                                                    Opacity="0.55"
+                                                    Text="Power"
+                                                    TextColor="#1F2937" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="13"
+                                                    Text="{Binding HorsePower, StringFormat='{}{0} hp'}"
+                                                    TextColor="#111827" />
+                                            </VerticalStackLayout>
+                                        </Border>
 
-                                    <Label
-                                        Grid.Column="2"
-                                        FontSize="15"
-                                        Opacity="0.75"
-                                        Text="{Binding EngineDisplacementCc, StringFormat='Engine: {0} cc'}" />
+                                        <Border
+                                            Grid.Column="1"
+                                            Padding="10,8"
+                                            BackgroundColor="#F8FAFC"
+                                            Stroke="#E5E7EB"
+                                            StrokeShape="RoundRectangle 14"
+                                            StrokeThickness="1">
+                                            <VerticalStackLayout Spacing="2">
+                                                <Label
+                                                    FontSize="11"
+                                                    Opacity="0.55"
+                                                    Text="Engine"
+                                                    TextColor="#1F2937" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="13"
+                                                    Text="{Binding EngineDisplacementCc, StringFormat='{}{0} cc'}"
+                                                    TextColor="#111827" />
+                                            </VerticalStackLayout>
+                                        </Border>
 
-                                    <Label
-                                        Grid.Row="1"
-                                        Grid.ColumnSpan="2"
-                                        FontSize="15"
-                                        Opacity="0.75"
-                                        Text="{Binding Transmission, StringFormat='Transmission: {0}'}" />
-                                </Grid>
+                                        <Border
+                                            Grid.Column="2"
+                                            Padding="10,8"
+                                            BackgroundColor="#F8FAFC"
+                                            Stroke="#E5E7EB"
+                                            StrokeShape="RoundRectangle 14"
+                                            StrokeThickness="1">
+                                            <VerticalStackLayout Spacing="2">
+                                                <Label
+                                                    FontSize="11"
+                                                    Opacity="0.55"
+                                                    Text="Year"
+                                                    TextColor="#1F2937" />
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="13"
+                                                    Text="{Binding Year}"
+                                                    TextColor="#111827" />
+                                            </VerticalStackLayout>
+                                        </Border>
+                                    </Grid>
+
+                                    <Border
+                                        Padding="12,10"
+                                        BackgroundColor="#F9FAFB"
+                                        Stroke="#E5E7EB"
+                                        StrokeShape="RoundRectangle 14"
+                                        StrokeThickness="1">
+                                        <HorizontalStackLayout Spacing="6">
+                                            <Label
+                                                FontAttributes="Bold"
+                                                FontSize="13"
+                                                Text="Transmission:"
+                                                TextColor="#374151" />
+                                            <Label
+                                                FontSize="13"
+                                                Text="{Binding Transmission}"
+                                                TextColor="#6B7280" />
+                                        </HorizontalStackLayout>
+                                    </Border>
+
+                                </VerticalStackLayout>
                             </Grid>
                         </Border>
                     </DataTemplate>

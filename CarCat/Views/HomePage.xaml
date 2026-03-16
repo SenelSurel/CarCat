@@ -4,27 +4,265 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Home"
-    BackgroundColor="White"
     Shell.NavBarIsVisible="False">
 
-    <Grid
-        Padding="16"
-        RowDefinitions="Auto,*"
-        RowSpacing="16"
-        VerticalOptions="Center">
-        <VerticalStackLayout Spacing="8">
-            <Image HorizontalOptions="Center" Source="splash.svg" />
-            <Label Style="{StaticResource TitleText}" Text="Car Category" />
-            <Label Style="{StaticResource BodyText}" Text="Browse vehicles based on make, model, road, engine, and transmission information." />
-        </VerticalStackLayout>
+    <Grid>
+        <Grid>
+            <BoxView Color="{AppThemeBinding Light=#F4F7FB, Dark=#0B1220}" />
 
-        <VerticalStackLayout Grid.Row="1" Spacing="12">
-            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
-            <Button
-                Clicked="OnCarsClicked"
-                FontSize="16"
-                Style="{StaticResource PrimaryButton}"
-                Text="{Binding CarsCountText}" />
-        </VerticalStackLayout>
+
+            <Border
+                Margin="-40,-120,-40,0"
+                BackgroundColor="{AppThemeBinding Light=#DDEAFE,
+                                                  Dark=#102A56}"
+                HeightRequest="280"
+                HorizontalOptions="Fill"
+                Opacity="0.55"
+                StrokeShape="RoundRectangle 0,0,120,120"
+                StrokeThickness="0"
+                VerticalOptions="Start" />
+        </Grid>
+        <ScrollView>
+            <Grid
+                Padding="20,24,20,24"
+                RowDefinitions="Auto,Auto,Auto,Auto"
+                RowSpacing="18">
+                <VerticalStackLayout Grid.Row="0" Spacing="14">
+                    <Border
+                        Padding="18"
+                        BackgroundColor="{AppThemeBinding Light=#FFFFFF,
+                                                          Dark=#111827}"
+                        HorizontalOptions="Center"
+                        Stroke="{AppThemeBinding Light=#E8EDF5,
+                                                 Dark=#1F2937}"
+                        StrokeShape="RoundRectangle 26"
+                        StrokeThickness="1">
+
+                        <Image
+                            HeightRequest="70"
+                            HorizontalOptions="Center"
+                            Source="splash.svg"
+                            VerticalOptions="Center"
+                            WidthRequest="70" />
+                    </Border>
+                    <Border
+                        Padding="12,7"
+                        BackgroundColor="{AppThemeBinding Light=#E0E7FF,
+                                                          Dark=#1E3A8A}"
+                        HorizontalOptions="Center"
+                        StrokeShape="RoundRectangle 999"
+                        StrokeThickness="0">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="CarCat • Categories"
+                            TextColor="{AppThemeBinding Light=#1E40AF,
+                                                        Dark=#BFDBFE}" />
+                    </Border>
+                </VerticalStackLayout>
+                <Border
+                    Grid.Row="1"
+                    Padding="20"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFF,
+                                                      Dark=#111827}"
+                    Stroke="{AppThemeBinding Light=#E8EDF5,
+                                             Dark=#1F2937}"
+                    StrokeShape="RoundRectangle 28"
+                    StrokeThickness="1">
+                    <Border.Shadow>
+                        <Shadow
+                            Brush="#22000000"
+                            Opacity="1"
+                            Radius="22"
+                            Offset="0,8" />
+                    </Border.Shadow>
+                    <VerticalStackLayout Spacing="14">
+                        <VerticalStackLayout Spacing="6">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="30"
+                                LineBreakMode="WordWrap"
+                                Text="Discover cars in a cleaner way"
+                                TextColor="{AppThemeBinding Light=#0F172A,
+                                                            Dark=#F8FAFC}" />
+
+                            <Label
+                                FontSize="14"
+                                LineHeight="1.3"
+                                Text="Browse vehicles by brand, model, engine size, year, and transmission with a smooth and simple experience."
+                                TextColor="{AppThemeBinding Light=#475569,
+                                                            Dark=#CBD5E1}" />
+                        </VerticalStackLayout>
+                        <FlexLayout
+                            AlignItems="Start"
+                            Direction="Row"
+                            JustifyContent="Start"
+                            Wrap="Wrap">
+                            <Border
+                                Margin="0,0,8,8"
+                                Padding="10,6"
+                                BackgroundColor="{AppThemeBinding Light=#F1F5F9,
+                                                                  Dark=#0F172A}"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="Brands"
+                                    TextColor="{AppThemeBinding Light=#334155,
+                                                               Dark=#E2E8F0}" />
+                            </Border>
+                            <Border
+                                Margin="0,0,8,8"
+                                Padding="10,6"
+                                BackgroundColor="{AppThemeBinding Light=#F1F5F9,
+                                                                  Dark=#0F172A}"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="Model Search"
+                                    TextColor="{AppThemeBinding Light=#334155,
+                                                                Dark=#E2E8F0}" />
+                            </Border>
+                            <Border
+                                Margin="0,0,8,8"
+                                Padding="10,6"
+                                BackgroundColor="{AppThemeBinding Light=#F1F5F9,
+                                                                  Dark=#0F172A}"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="Year Range"
+                                    TextColor="{AppThemeBinding Light=#334155,
+                                                                Dark=#E2E8F0}" />
+                            </Border>
+                            <Border
+                                Margin="0,0,8,8"
+                                Padding="10,6"
+                                BackgroundColor="{AppThemeBinding Light=#F1F5F9,
+                                                                  Dark=#0F172A}"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="Transmission"
+                                    TextColor="{AppThemeBinding Light=#334155,
+                                                                Dark=#E2E8F0}" />
+                            </Border>
+                        </FlexLayout>
+                        <Grid
+                            Margin="0,4,0,0"
+                            ColumnDefinitions="Auto,*"
+                            ColumnSpacing="10">
+                            <Border
+                                Padding="10,8"
+                                BackgroundColor="{AppThemeBinding Light=#EEF2FF,
+                                                                  Dark=#172554}"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="TIP"
+                                    TextColor="{AppThemeBinding Light=#3730A3,
+                                                                Dark=#C7D2FE}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                FontSize="12"
+                                Text="Use filters to narrow the list fast and tap a card to view full details."
+                                TextColor="{AppThemeBinding Light=#64748B,
+                                                            Dark=#94A3B8}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Padding="16"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFF,
+                                                      Dark=#111827}"
+                    Stroke="{AppThemeBinding Light=#E8EDF5,
+                                             Dark=#1F2937}"
+                    StrokeShape="RoundRectangle 22"
+                    StrokeThickness="1">
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+
+                        <VerticalStackLayout Spacing="4">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="17"
+                                Text="Ready to explore?"
+                                TextColor="{AppThemeBinding Light=#0F172A,
+                                                            Dark=#F8FAFC}" />
+
+                            <Label
+                                FontSize="13"
+                                Text="Open the list and start browsing your catalog."
+                                TextColor="{AppThemeBinding Light=#64748B,
+                                                            Dark=#94A3B8}" />
+                        </VerticalStackLayout>
+                        <Border
+                            Grid.Column="1"
+                            Padding="12,8"
+                            BackgroundColor="{AppThemeBinding Light=#EFF6FF,
+                                                              Dark=#0F2747}"
+                            StrokeShape="RoundRectangle 16"
+                            StrokeThickness="0"
+                            VerticalOptions="Center">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="12"
+                                Text="Cars"
+                                TextColor="{AppThemeBinding Light=#2563EB,
+                                                            Dark=#93C5FD}" />
+                        </Border>
+                    </Grid>
+                </Border>
+                <VerticalStackLayout
+                    Grid.Row="3"
+                    Margin="0,2,0,4"
+                    Spacing="12">
+
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}" />
+
+                    <Button
+                        BackgroundColor="{AppThemeBinding Light=#2563EB,
+                                                          Dark=#3B82F6}"
+                        Clicked="OnCarsClicked"
+                        CornerRadius="18"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HeightRequest="58"
+                        Text="{Binding CarsCountText}"
+                        TextColor="White">
+
+                        <Button.Shadow>
+                            <Shadow
+                                Brush="#332563EB"
+                                Opacity="1"
+                                Radius="18"
+                                Offset="0,8" />
+                        </Button.Shadow>
+                    </Button>
+
+                    <Label
+                        FontSize="12"
+                        HorizontalTextAlignment="Center"
+                        Text="Tap to open the car list."
+                        TextColor="{AppThemeBinding Light=#64748B,
+                                                    Dark=#94A3B8}" />
+                </VerticalStackLayout>
+            </Grid>
+        </ScrollView>
     </Grid>
 </ContentPage>

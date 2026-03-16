@@ -3,101 +3,294 @@
     x:Class="CarCat.Views.CarDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Car Detail">
+    Title="Car Detail"
+    BackgroundColor="#F6F7FB">
 
     <ScrollView>
-        <VerticalStackLayout Padding="16" Spacing="12">
-            <HorizontalStackLayout IsVisible="{Binding IsBusy}" Spacing="10">
-                <ActivityIndicator IsRunning="{Binding IsBusy}" />
-                <Label
-                    Opacity="0.75"
-                    Text="Loading details..."
-                    VerticalTextAlignment="Center" />
-            </HorizontalStackLayout>
-
+        <VerticalStackLayout Padding="16,14,16,24" Spacing="14">
             <Border
-                Padding="12"
-                BackgroundColor="#33FF0000"
-                IsVisible="{Binding HasError}"
-                StrokeShape="RoundRectangle 14"
-                StrokeThickness="0">
-                <Label Text="{Binding ErrorMessage}" TextColor="Red" />
-            </Border>
-
-            <VerticalStackLayout IsVisible="{Binding HasCar}" Spacing="12">
-
-
-                <CarouselView
-                    x:Name="carCarousel"
-                    HeightRequest="250"
-                    ItemsSource="{Binding SliderImages}"
-                    Loop="True">
-
-                    <CarouselView.ItemTemplate>
-                        <DataTemplate>
-                            <Image
-                                Aspect="AspectFill"
-                                HeightRequest="250"
-                                Source="{Binding}" />
-                        </DataTemplate>
-                    </CarouselView.ItemTemplate>
-                </CarouselView>
-
-
-                <VerticalStackLayout Spacing="2">
+                Padding="14,10"
+                BackgroundColor="White"
+                IsVisible="{Binding IsBusy}"
+                Stroke="#E9ECF2"
+                StrokeShape="RoundRectangle 18"
+                StrokeThickness="1">
+                <HorizontalStackLayout Spacing="10">
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="Center" />
                     <Label
                         FontAttributes="Bold"
-                        FontSize="24"
-                        Text="{Binding Car.Brand}" />
+                        Opacity="0.8"
+                        Text="Loading details..."
+                        TextColor="#374151"
+                        VerticalTextAlignment="Center" />
+                </HorizontalStackLayout>
+            </Border>
+            <Border
+                Padding="14,12"
+                BackgroundColor="#FEF2F2"
+                IsVisible="{Binding HasError}"
+                Stroke="#FECACA"
+                StrokeShape="RoundRectangle 18"
+                StrokeThickness="1">
+                <HorizontalStackLayout Spacing="10">
                     <Label
-                        FontSize="16"
-                        Opacity="0.85"
-                        Text="{Binding Car.Model}" />
-                </VerticalStackLayout>
-
-                <Grid
-                    ColumnDefinitions="*,*"
-                    ColumnSpacing="12"
-                    RowDefinitions="Auto,Auto,Auto,Auto"
-                    RowSpacing="8">
-
-                    <Label Opacity="0.7" Text="Year" />
-                    <Label Grid.Column="1" Text="{Binding Car.Year}" />
-
+                        FontSize="18"
+                        Text="⚠️"
+                        VerticalTextAlignment="Center" />
                     <Label
-                        Grid.Row="1"
-                        Opacity="0.7"
-                        Text="Power" />
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="1"
-                        Text="{Binding Car.HorsePower, StringFormat='{}{0} hp'}" />
+                        Opacity="0.9"
+                        Text="{Binding ErrorMessage}"
+                        TextColor="#B91C1C"
+                        VerticalTextAlignment="Center" />
+                </HorizontalStackLayout>
+            </Border>
+            <VerticalStackLayout IsVisible="{Binding HasCar}" Spacing="14">
+                <Border
+                    Padding="0"
+                    BackgroundColor="White"
+                    Stroke="#E7EAF0"
+                    StrokeShape="RoundRectangle 26"
+                    StrokeThickness="1">
 
-                    <Label
-                        Grid.Row="2"
-                        Opacity="0.7"
-                        Text="Engine" />
-                    <Label
-                        Grid.Row="2"
-                        Grid.Column="1"
-                        Text="{Binding Car.EngineDisplacementCc, StringFormat='{}{0} cc'}" />
+                    <Grid RowDefinitions="260,Auto">
+                        <Grid>
+                            <CarouselView
+                                x:Name="carCarousel"
+                                HeightRequest="260"
+                                ItemsSource="{Binding SliderImages}"
+                                Loop="True">
 
-                    <Label
-                        Grid.Row="3"
-                        Opacity="0.7"
-                        Text="Transmission" />
-                    <Label
-                        Grid.Row="3"
-                        Grid.Column="1"
-                        Text="{Binding Car.Transmission}" />
-                </Grid>
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Image
+                                                Aspect="AspectFill"
+                                                HeightRequest="260"
+                                                Source="{Binding}" />
+                                            <BoxView Color="#42000000" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+                            <Border
+                                Margin="14"
+                                Padding="10,6"
+                                BackgroundColor="#CC111827"
+                                HorizontalOptions="Start"
+                                StrokeShape="RoundRectangle 12"
+                                StrokeThickness="0"
+                                VerticalOptions="Start">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="12"
+                                    Text="{Binding Car.Year}"
+                                    TextColor="White" />
+                            </Border>
+                        </Grid>
+                        <VerticalStackLayout
+                            Grid.Row="1"
+                            Padding="16,16,16,18"
+                            Spacing="12">
+                            <VerticalStackLayout Spacing="3">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="28"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Car.Brand}"
+                                    TextColor="#111827" />
+                                <Label
+                                    FontSize="17"
+                                    LineBreakMode="TailTruncation"
+                                    Opacity="0.8"
+                                    Text="{Binding Car.Model}"
+                                    TextColor="#374151" />
+                            </VerticalStackLayout>
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                <Border
+                                    Padding="10,8"
+                                    BackgroundColor="#F8FAFC"
+                                    Stroke="#E5E7EB"
+                                    StrokeShape="RoundRectangle 14"
+                                    StrokeThickness="1">
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label
+                                            FontSize="11"
+                                            Opacity="0.55"
+                                            Text="Power"
+                                            TextColor="#1F2937" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="13"
+                                            Text="{Binding Car.HorsePower, StringFormat='{}{0} hp'}"
+                                            TextColor="#111827" />
+                                    </VerticalStackLayout>
+                                </Border>
+                                <Border
+                                    Grid.Column="1"
+                                    Padding="10,8"
+                                    BackgroundColor="#F8FAFC"
+                                    Stroke="#E5E7EB"
+                                    StrokeShape="RoundRectangle 14"
+                                    StrokeThickness="1">
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label
+                                            FontSize="11"
+                                            Opacity="0.55"
+                                            Text="Engine"
+                                            TextColor="#1F2937" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="13"
+                                            Text="{Binding Car.EngineDisplacementCc, StringFormat='{}{0} cc'}"
+                                            TextColor="#111827" />
+                                    </VerticalStackLayout>
+                                </Border>
+                                <Border
+                                    Grid.Column="2"
+                                    Padding="10,8"
+                                    BackgroundColor="#F8FAFC"
+                                    Stroke="#E5E7EB"
+                                    StrokeShape="RoundRectangle 14"
+                                    StrokeThickness="1">
+                                    <VerticalStackLayout Spacing="2">
+                                        <Label
+                                            FontSize="11"
+                                            Opacity="0.55"
+                                            Text="Year"
+                                            TextColor="#1F2937" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="13"
+                                            Text="{Binding Car.Year}"
+                                            TextColor="#111827" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E7EAF0"
+                    StrokeShape="RoundRectangle 22"
+                    StrokeThickness="1">
+                    <VerticalStackLayout Spacing="14">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="Specifications"
+                            TextColor="#111827" />
+                        <Grid
+                            ColumnDefinitions="*,*"
+                            ColumnSpacing="14"
+                            RowDefinitions="Auto,Auto"
+                            RowSpacing="12">
+                            <Border
+                                Padding="12,10"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#E5E7EB"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="1">
+                                <VerticalStackLayout Spacing="3">
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.55"
+                                        Text="Transmission"
+                                        TextColor="#374151" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        Text="{Binding Car.Transmission}"
+                                        TextColor="#111827" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border
+                                Grid.Column="1"
+                                Padding="12,10"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#E5E7EB"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="1">
+                                <VerticalStackLayout Spacing="3">
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.55"
+                                        Text="Horse Power"
+                                        TextColor="#374151" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        Text="{Binding Car.HorsePower, StringFormat='{}{0} hp'}"
+                                        TextColor="#111827" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border
+                                Grid.Row="1"
+                                Padding="12,10"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#E5E7EB"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="1">
+                                <VerticalStackLayout Spacing="3">
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.55"
+                                        Text="Engine Size"
+                                        TextColor="#374151" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        Text="{Binding Car.EngineDisplacementCc, StringFormat='{}{0} cc'}"
+                                        TextColor="#111827" />
+                                </VerticalStackLayout>
+                            </Border>
+                            <Border
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Padding="12,10"
+                                BackgroundColor="#F9FAFB"
+                                Stroke="#E5E7EB"
+                                StrokeShape="RoundRectangle 14"
+                                StrokeThickness="1">
+                                <VerticalStackLayout Spacing="3">
+                                    <Label
+                                        FontSize="12"
+                                        Opacity="0.55"
+                                        Text="Model Year"
+                                        TextColor="#374151" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="14"
+                                        Text="{Binding Car.Year}"
+                                        TextColor="#111827" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+                <Border
+                    Padding="16"
+                    BackgroundColor="White"
+                    Stroke="#E7EAF0"
+                    StrokeShape="RoundRectangle 22"
+                    StrokeThickness="1">
 
-                <Label
-                    Margin="0,8,0,0"
-                    FontAttributes="Bold"
-                    Text="About" />
-                <Label Opacity="0.85" Text="{Binding Car.Description}" />
+                    <VerticalStackLayout Spacing="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            Text="About"
+                            TextColor="#111827" />
 
+                        <Label
+                            FontSize="14"
+                            LineHeight="1.4"
+                            Opacity="0.88"
+                            Text="{Binding Car.Description}"
+                            TextColor="#374151" />
+                    </VerticalStackLayout>
+                </Border>
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
